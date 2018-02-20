@@ -1,0 +1,37 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background-image: url(http://www.bandt.com.au/information/uploads/2014/09/iStock_000043890402_Medium-1260x840.jpg); background-repeat: no-repeat, repeat; height: 100%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+<div class="col-md-5 p-lg-5 mx-auto my-5">
+  <h1 class="display-4"><span style="font-family: 'Archivo+Black', sans-serif; font-weight: bold; font-size:65px;">Average</span> <span style="font-family: 'Raleway', sans-serif; font-size:65px; color:#17a2b8;">Joe</span><span style="font-family: 'Raleway', sans-serif; font-size:65px;"><br>L&nbsp;&nbsp;o&nbsp;&nbsp;a&nbsp;&nbsp;n&nbsp;&nbsp;s </span></h1>
+  <p class="lead font-weight-normal">Loaned by average Joes. <br> Borrowed by average Joes.</p>
+
+</div>
+<div class="product-device box-shadow d-none d-md-block"></div>
+<div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+</div>
+<% if flash[:errors] %>
+<% flash[:errors].each do |e| %>
+  <p class="alert alert-primary role="alert""><%= e %></p>
+<% end %>
+<% end %>
+<div class="container" style="width: 60%; bottom-margin: 35px;">
+    <div class="bg-info mr-md-5 pt-2 px-2 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="border-radius: 21px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="my-3 py-3">
+            <h2 class="display-4" "font-family: 'Archivo+Black', sans-serif; font-weight: bold; font-size:65px;">Login</h2>
+        </div>
+        <div class="box-shadow mx-auto" style="width: 50%; height: 200px; border-radius: 21px; background-color:#E5E7E9; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <form action="/sessions" method="post" style="color: #212529; text-align: right;padding-top: 35px; padding-right: 35px;">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label>Email: <input type="text" id="Email" name = "email"></label>
+                <label>Password: <input type="password" id="Password" name = "password"></label><br>
+                <input type="submit" name="Log In" value="Log In">
+            </form>
+            <a href="/" style="color: black">Click Here to Register</a>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,58 @@
+<div class="row">
+    <p style="color:white"> &nbsp;&nbsp; <br> &nbsp;&nbsp;</p>
+</div>
+<div class="row">
+    <p style="color:white"> &nbsp;&nbsp; <br> &nbsp;&nbsp;</p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light text-info sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <h3 style="font-family: 'Raleway', sans-serif;">Welcome <%= @lender.first_name%> </h3>
+                    </li>
+                    <li class="nav-item">
+                        <h5>Balance: <%= number_to_currency(@lender.balance) %></h5>  
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-9 mx-4 pt-3 px-4" style="box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2 text-info" style="font-family: 'Raleway', sans-serif;">Joes You've Lent To:</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                    <a href="/lenders/show"><button class="btn btn-sm btn-outline-secondary">Joes In Need</button></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-bordered">
+                <tr style="background-color:lightgray; font-family: 'Raleway', sans-serif;">
+                    <th>Name</th>
+                    <th>Needed For</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Raised</th>
+                    <th>Loan</th>
+                </tr>
+                <tbody>
+                    <% @lent_money_to.each do |l| %>
+                    <tr>
+                        <td><%= l.first_name %> <%= l.last_name %></td>
+                        <td><%= l.purpose %></td>
+                        <td><%= l.description %></td>
+                        <td><%= number_to_currency(l.amount_needed) %></td>  
+                        <td><%= number_to_currency(Transaction.select("SUM(amount) AS total").where(borrower_id: l.id).first.total) %></td>
+                        <td><%= number_to_currency(Transaction.select("SUM(amount) AS total").where("borrower_id = #{l.id} AND lender_id = #{@lender.id}").first.total) %></td>       
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>
+<div class="row">
+    <p style="color:white"> &nbsp;&nbsp; <br> &nbsp;&nbsp;</p>
+</div>

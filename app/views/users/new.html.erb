@@ -1,0 +1,66 @@
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background-image: url(https://assets.nerdwallet.com/blog/wp-content/uploads/2015/12/5-steps-to-getting-a-business-loan.jpg); background-repeat: no-repeat, repeat; height: 100%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+<div class="col-md-5 p-lg-5 mx-auto my-5">
+  <h1 class="display-4"><span style="font-family: 'Archivo+Black', sans-serif; font-weight: bold; font-size:65px;">Average</span> <span style="font-family: 'Raleway', sans-serif; font-size:65px; color:#17a2b8">Joe</span><span style="font-family: 'Raleway', sans-serif; font-size:65px;"><br>L&nbsp;&nbsp;o&nbsp;&nbsp;a&nbsp;&nbsp;n&nbsp;&nbsp;s </span></h1>
+  <p class="lead font-weight-normal">Loaned by average Joes. <br> Borrowed by average Joes.</p>
+</div>
+
+<div class="product-device box-shadow d-none d-md-block"></div>
+<div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+</div>
+<% if flash[:errors] %>
+<% flash[:errors].each do |e| %>
+  <p class="alert alert-primary role="alert""><%= e %></p>
+<% end %>
+<% end %>
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-info mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="border-radius: 21px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="my-3 py-3">
+        <h2 class="display-4" "font-family: 'Archivo+Black', sans-serif; font-weight: bold; font-size:50px;">Register Lender</h2>
+            <p class="lead">For the one who lends a hand to their neighbor</p>
+        </div>
+        <div class="box-shadow mx-auto" style="width: 80%; height: 400px; border-radius: 21px; background-color: #E5E7E9; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <form action="/users" method="post" style="color: #212529; text-align: right;padding-top: 35px; padding-right: 35px;">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label>First Name: <input type="text" id="First Name" name = "lender[first_name]"></label>
+                <label>Last Name: <input type="text" id="Last Name" name = "lender[last_name]"></label>
+                <label>Email: <input type="text" id="Email" name = "lender[email]"></label>
+                <label>Password: <input type="password" id="Password" name = "lender[password]"></label>	
+                <label>Confirm Password: <input type="password" id="Password_Confirmation" name = "lender[password_confirmation]"></label>
+                <label>Money: <input type="int" id="balance" name = "lender[balance]"></label><br>
+                </label><input type="submit" name="Register" value="Register">
+            </form>
+            <h6><a href="/sessions/login" style="color: black">Already a member?</a></h6>
+
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div class="mr-md-3 pt-3 px-3 pt-md-4 px-md-4 text-center overflow-hidden" style="border-radius: 21px; background-color: #E5E7E9; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="my-3 p-3">
+        <h2 class="display-4" "font-family: 'Archivo+Black', sans-serif; font-weight: bold; font-size:50px;">Register Borrower</h2>
+            <p class="lead">For the one who needs a helping hand</p>
+        </div>
+        <div class="bg-info box-shadow mx-auto" style="width: 80%; height: 430px; border-radius: 21px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <form action="/users" method="post" style="color: white; text-align: right; padding-top: 35px; padding-right: 35px;">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label>First Name: <input type="text" id="First Name" name = "borrower[first_name]"></label><br>
+                <label>Last Name: <input type="text" id="Last Name" name = "borrower[last_name]"></label>
+                <label>Email: <input type="text" id="Email" name = "borrower[email]"></label>
+                <label>Password: <input type="password" id="Password" name = "borrower[password]"></label>	
+                <label>Confirm Password: <input type="password" id="Password_Confirmation" name = "borrower[password_confirmation]"></label>
+                <label>Money Needed For: <input type="text" id="Purpose" name = "borrower[purpose]"></label>
+                <label>Description <input type="textbox" id="Description" name = "borrower[description]"></label>
+                <label>Money: <input type="int" id="amount_needed" name = "borrower[amount_needed]"></label><br>
+                <input type="submit" name="Register" value="Register">
+            </form>
+            <h6><a href="/sessions/login" style="color: black">Already a member?</a></h6>
+        </div>
+    </div>
+</div>
+
+
+
+
+
